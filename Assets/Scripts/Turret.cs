@@ -36,9 +36,11 @@ public class Turret : MonoBehaviour {
     IEnumerator fire()
     {
         canFire = false;
-        Rigidbody instantProjectile = Instantiate(projectile, transform.position, transform.rotation) as Rigidbody;
-        instantProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, projectile.GetComponent<Projectile>().velocity));
-        yield return new WaitForSeconds(1/fireRate); //reciprocal to get rounds per second.
+        projectile.GetComponent<Projectile>().setTarget("Player");
+        Rigidbody instantProjectile = Instantiate(projectile, transform.position, GetComponentInParent<Transform>().rotation) as Rigidbody;
+        instantProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, projectile.GetComponent<Projectile>().getVelocity()));
+        //Extra shit like sounds and muzzle flash or whatever goes here
+        yield return new WaitForSeconds(1 / fireRate); //reciprocal to get rounds per second.
         canFire = true;
     }
 }

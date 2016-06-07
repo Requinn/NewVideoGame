@@ -6,19 +6,16 @@ public class Vision : MonoBehaviour {
     public float alertAngle = 90.0f;
     public float sightDistance = 20.0f;
     public float alertDistance = 5.0f;
-    public bool playerSight;
+    //public bool playerSight;
     public int alertness;
     
     public Vector3 personalLastSighting;
 
-   
-    private SphereCollider col;
     private GameObject player;
     private RaycastHit hit;
     
     // Use this for initialization
     void Awake() {
-        col = GetComponent<SphereCollider>();
         player = GameObject.FindGameObjectWithTag("Player");
         alertness = 0;
     }

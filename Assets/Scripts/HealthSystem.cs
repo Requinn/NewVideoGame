@@ -11,37 +11,55 @@ public class HealthSystem : MonoBehaviour {
     // Use this for initialization
     void Start () {
         curHP = maxHP;
-        shield = GetComponentInParent<PlayerControl>().shield;
-        shieldMAX = shield.GetComponent<Shield>().getshieldMAX();
+        shield = GetComponentInParent<Entity>().getShield();
+        if (shield != null)
+        {
+            shieldMAX = shield.GetComponent<Shield>().getshieldMAX();
+        }
         //shieldHP = shield.GetComponent<Shield>().getshieldHP();
         //shieldRecharge = shield.GetComponent<Shield>().getshieldCharge();
         //shieldBrokecharge = shield.GetComponent<Shield>().getshatterCharge();
     }
     
+    public void resetShield()
+    {
+        shield = GetComponentInParent<Entity>().getShield();
+        shieldMAX = shield.GetComponent<Shield>().getshieldMAX();
+    }
+
     void Update()
     {
-        shieldHP = shield.GetComponent<Shield>().getshieldHP();
-        UIhealth.SetShieldBar(shieldHP / shieldMAX);
+        if (shield != null)
+        {
+            shieldHP = shield.GetComponent<Shield>().getshieldHP();
+            UIhealth.SetShieldBar(shieldHP / shieldMAX);
+        }
     }
 
     public void takeDamage(float damage)
     {
-        if (!shield.GetComponent<Shield>().shieldbreak() && GetComponentInParent<PlayerControl>().getBlock()) //shield isn't broken and player is blocking
+        if (shieldHP > 0 && GetComponentInParent<Entity>().getBlock()) //shield isn't broken and player is blocking
         {
-            shield.GetComponent<Shield>().block(damage);
-            
+            takeShieldDmg(damage);
         }
-        else { 
-            if (curHP > 0) //just to be sure
-            {
-                curHP -= damage;
-                if (curHP < 0)
-                {
-                    curHP = 0;
-                }
-            }
-            UIhealth.SetHealthBar(curHP/maxHP);
+        else if (curHP > 0) //just to be sure
+        {
+            takeHealthDmg(damage);
+        }
+        UIhealth.SetHealthBar(curHP / maxHP);
+    }
+    // I separated these two functions just in case I want to call them directly. I.e. damage only shields or health, and not be conditional on block.
+    public void takeShieldDmg(float damage)
+    {
+        shield.GetComponent<Shield>().block(damage);
+    }
 
+    public void takeHealthDmg(float damage)
+    {
+        curHP -= damage;
+        if (curHP < 0)
+        {
+            curHP = 0;
         }
     }
 

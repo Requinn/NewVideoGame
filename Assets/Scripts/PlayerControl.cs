@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerControl : MonoBehaviour {
+public class PlayerControl : MonoBehaviour, Entity {
     public float walkspeed = 10.0f;
     public float sprintspeed = 13.33f;
     public float jump = 5.0f;
@@ -43,7 +43,8 @@ public class PlayerControl : MonoBehaviour {
 	void Update () {
         if (health.curHP > 0)
         {
-            Movement();
+            moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            Movement(moveDir);
             Attack();
             WeaponSwap();
         }
@@ -53,12 +54,10 @@ public class PlayerControl : MonoBehaviour {
         }
 	}
 
-    public void Movement()
+    public void Movement(Vector3 direction)
     {
-        
-        moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveDir = camera.transform.TransformDirection(moveDir);
-        moveDir *= speed;
+        direction = camera.transform.TransformDirection(direction);
+        direction *= speed;
         /**if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = sprintspeed;
@@ -83,9 +82,9 @@ public class PlayerControl : MonoBehaviour {
         {
             
         }**/
-        moveDir.y = 0f;  //this disables freefly
-        moveDir.y -= gravity * Time.deltaTime;
-        control.Move(moveDir * Time.deltaTime);
+        direction.y = 0f;  //this disables freefly
+        direction.y -= gravity * Time.deltaTime;
+        control.Move(direction * Time.deltaTime);
     }
 
     public void Attack()
@@ -111,7 +110,7 @@ public class PlayerControl : MonoBehaviour {
     }
     public bool getBlock()
     {
-        if(state == State.Blocking)
+        if(state == State.Blocking && health.shieldHP > 0)
         {
             return true;
         }
@@ -140,6 +139,11 @@ public class PlayerControl : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public GameObject getShield()
+    {
+        return shield;
     }
     
 }
