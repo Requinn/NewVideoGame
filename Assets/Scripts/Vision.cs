@@ -18,10 +18,11 @@ public class Vision : MonoBehaviour {
     void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
         alertness = 0;
+        
     }
 
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
         alertness = CanSeeMonster(player);
 	}
 
@@ -33,10 +34,9 @@ public class Vision : MonoBehaviour {
         startVec.y += heightOfPlayer;
         Vector3 startVecFwd = transform.forward;
         startVecFwd.y += heightOfPlayer;
+        
 
-        RaycastHit hit;
         Vector3 rayDirection = target.transform.position - startVec;
-
         // Detect entities in view
         if ((Vector3.Angle(rayDirection, startVecFwd)) < FOVangle && Physics.Raycast(startVec, rayDirection, out hit, sightDistance))
         { 

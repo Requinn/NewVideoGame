@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
-using System;
+using MovementEffects;
+/** Do not ask why I can't use MEC Coroutines, for whatever reason the magical solution doesn't apply here
+    and it won't force stop coroutines like the way it does now. Luckily, 
+    we shouldn't have an inordinate amount of shield regenerating on the field so hopefully it isn't a huge performance hit
+    **/
 
 public class BasicShield : MonoBehaviour, Shield {
     public float shieldhealth; //how much health the shield has
@@ -52,6 +57,7 @@ public class BasicShield : MonoBehaviour, Shield {
         }
         return false;
     }
+
     public IEnumerator regCharge()
     {
         yield return new WaitForSeconds(shieldchargedelay); //wait a bit

@@ -67,68 +67,46 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
-    <Reference Include="PandaBehaviour">
-      <HintPath>Assets\PandaBehaviour\Core\PandaBehaviour.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-UnityScript-firstpass">
       <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PandaBehaviour\Core\PandaBehaviour.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\00_ChangeColor\Assets\MyCube.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\01_Move\Assets\Move.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\02_PlayTag\Assets\Computer.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\02_PlayTag\Assets\Dialogue.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\02_PlayTag\Assets\Player.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\AI.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\AIVision.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\Bullet.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\BulletImpact.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\FollowCamera.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\HUD.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\Patroller.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\ShooterGameController.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\TriggerType.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\Unit.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\UnitExplosion.cs" />
-    <Compile Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\WaypointPath.cs" />
+    <Compile Include="Assets\Drone_Summoned.cs" />
+    <Compile Include="Assets\InventoryStation.cs" />
+    <Compile Include="Assets\QuickSpawner.cs" />
+    <Compile Include="Assets\Scripts\AI\DroneMasterAI.cs" />
+    <Compile Include="Assets\Scripts\AI\Drone_SummonedAI.cs" />
+    <Compile Include="Assets\Scripts\AI\GenericGoonAI.cs" />
+    <Compile Include="Assets\Scripts\AI\PatrolAI.cs" />
+    <Compile Include="Assets\Scripts\AnimatorAssetExampleCode\IKHands.cs" />
+    <Compile Include="Assets\Scripts\AnimatorAssetExampleCode\SmoothFollow.cs" />
+    <Compile Include="Assets\Scripts\AnimatorAssetExampleCode\WarriorAnimationDemoFREE.cs" />
     <Compile Include="Assets\Scripts\BasicBullet.cs" />
     <Compile Include="Assets\Scripts\BasicShield.cs" />
+    <Compile Include="Assets\Scripts\ChargeWeapon.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
-    <Compile Include="Assets\Scripts\Entity.cs" />
+    <Compile Include="Assets\Scripts\EventSpawnZone.cs" />
     <Compile Include="Assets\Scripts\FloorSpike.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\HealPad.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
+    <Compile Include="Assets\Scripts\MEC\Timing.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\MovementControl.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Scripts\Shield.cs" />
     <Compile Include="Assets\Scripts\Turret.cs" />
+    <Compile Include="Assets\Scripts\Types\Entity.cs" />
+    <Compile Include="Assets\Scripts\Types\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Types\Shield.cs" />
+    <Compile Include="Assets\Scripts\Types\Weapons.cs" />
     <Compile Include="Assets\Scripts\UIHealth.cs" />
     <Compile Include="Assets\Scripts\UIPause.cs" />
     <Compile Include="Assets\Scripts\Vision.cs" />
-    <Compile Include="Assets\Scripts\Weapons.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\PandaBehaviour\ChangeLog.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\00_ChangeColor\Assets\ChangeColor.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\01_Move\Assets\Move.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\02_PlayTag\Assets\Computer.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\02_PlayTag\Assets\PlayTag.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\02_PlayTag\Assets\PlayTag.commented.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\02_PlayTag\Assets\TagDialogue.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\AI.BT.lib.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\GameController.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\Hunter.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\Patroller.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\Player.BT.txt" />
-    <None Include="Assets\PandaBehaviour\Examples\03_Shooter\Assets\Sniper.BT.txt" />
-    <None Include="Assets\PandaBehaviour\LICENSE.TXT" />
-    <None Include="Assets\PandaBehaviour\README.txt" />
+    <None Include="Assets\Plugins\Trinary Software\NewUnlitShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

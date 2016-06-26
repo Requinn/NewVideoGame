@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+
 
 public class HealthSystem : MonoBehaviour {
     public float maxHP = 100.0f;
@@ -15,6 +15,12 @@ public class HealthSystem : MonoBehaviour {
         if (shield != null)
         {
             shieldMAX = shield.GetComponent<Shield>().getshieldMAX();
+        }
+        else
+        {
+            UIhealth.shieldBar.SetActive(false);
+            shieldMAX = 0;
+            shieldHP = 0;
         }
         //shieldHP = shield.GetComponent<Shield>().getshieldHP();
         //shieldRecharge = shield.GetComponent<Shield>().getshieldCharge();
@@ -45,6 +51,10 @@ public class HealthSystem : MonoBehaviour {
         else if (curHP > 0) //just to be sure
         {
             takeHealthDmg(damage);
+        }
+        if(curHP <= 0)
+        {
+            GetComponentInParent<Entity>().Die();
         }
         UIhealth.SetHealthBar(curHP / maxHP);
     }

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using MovementEffects;
 
 public class EnemyControl : MonoBehaviour, Entity {
     public Vision vision;
-    public float moveSpeed = 2.0f;
-    public float gravity = 50.0f;
+    public float moveSpeed = 2.0f; 
+    public float gravity = 50.0f;  //uneccessary?
     public float maxDist, minDist;
     public float curHealth;
     public GameObject weapon;
@@ -28,21 +29,23 @@ public class EnemyControl : MonoBehaviour, Entity {
         control = GetComponent<CharacterController>();
         //playerHealth = player.GetComponent<PlayerHealth>();
         player = GameObject.FindGameObjectWithTag("Player");
+        nav = GetComponent<NavMeshAgent>();
 
     }
 
     // Update is called once per frame
     void Update () {
         //Alive
+        /*
         if (healthsys.curHP > 0)
         {
-            Debug.Log("ALIVE");
             if (vision.alertness >= 1)
             {
                 LookAt();
                 if (vision.alertness == 2)
                 {
-                    Movement(Vector3.forward);
+                    //nav.SetDestination(vision.personalLastSighting);
+                    //Movement(Vector3.forward);
                     Attack();
                 }
             }
@@ -54,20 +57,27 @@ public class EnemyControl : MonoBehaviour, Entity {
         else
         {
             Debug.Log("DEAD");
-        }
+        }*/
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
     }
 
     public void LookAt()
     {
         horizontalLook = new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z);
+        //This vision is snapping, look for a way to make this smooth
         transform.LookAt(horizontalLook);
     }
 
     public void Movement(Vector3 direction)
-    {
+    {   
         moveDir = transform.TransformDirection(Vector3.forward) * moveSpeed;
+        nav.SetDestination(direction);
         //transform.position += transform.forward * moveSpeed * Time.deltaTime;
-        if (Vector3.Distance(transform.position, player.transform.position) >= minDist)
+        /*if (Vector3.Distance(transform.position, player.transform.position) >= minDist)
         {
             //moveDir.y = 0f;  //this disables freefly
             moveDir.y -= gravity * Time.deltaTime;
@@ -81,16 +91,16 @@ public class EnemyControl : MonoBehaviour, Entity {
             moveDir.x = 0;
             moveDir.z = 0;
             control.Move(moveDir * Time.deltaTime);
-        }
+        }*/
     }
 
     public void Attack()
     {
         if (Time.timeScale > 0)//Game is active Might have to be changed for main menu? most likely not
         {
-            Debug.Log("Cleared to shoot.");
+            //Debug.Log("Cleared to shoot.");
             //state = State.Attacking;
-            StartCoroutine(weapon.GetComponent<Weapon>().fire());
+            Timing.RunCoroutine(weapon.GetComponent<Weapon>().fire());
             /**else if (Input.GetMouseButton(1))
             {
                 //state = State.Blocking;

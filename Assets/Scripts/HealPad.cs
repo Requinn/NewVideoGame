@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using MovementEffects;
 
 public class HealPad : MonoBehaviour {
     public float heal;
@@ -25,14 +26,14 @@ public class HealPad : MonoBehaviour {
         if (c.gameObject.tag == "Player" && canFire)
         {
             c.gameObject.GetComponent<PlayerControl>().health.addHP(heal, false);
-            StartCoroutine(wait(interval));
+            Timing.RunCoroutine(wait(interval));
         }
     }
 
-    IEnumerator wait(float seconds)
+    IEnumerator<float> wait(float seconds)
     {
         canFire = false;
-        yield return new WaitForSeconds(seconds);
+        yield return Timing.WaitForSeconds(seconds);
         canFire = true;
     }
 }

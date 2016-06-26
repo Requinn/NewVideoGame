@@ -21,7 +21,7 @@ public class BasicBullet : MonoBehaviour, Projectile {
             c.gameObject.GetComponentInChildren<HealthSystem>().takeDamage(damage);
             Destroy(this.gameObject);
         }
-        else if (c.gameObject.tag == "Terrain" || c.gameObject.tag == "Untagged")
+        else if (c.gameObject.tag == "Terrain" || c.gameObject.tag == "Environment")
         {
             Destroy(this.gameObject);
         }
@@ -30,6 +30,11 @@ public class BasicBullet : MonoBehaviour, Projectile {
     {
         Destroy(this.gameObject, lifetime);
 
+    }
+
+    public void setDamage(float newdamage)
+    {
+        damage = newdamage;
     }
 
     public void setTarget(string tgt)

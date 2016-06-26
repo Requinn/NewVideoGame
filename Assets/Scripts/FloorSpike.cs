@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using MovementEffects;
 
 public class FloorSpike : MonoBehaviour {
     public float damage;
@@ -24,7 +25,7 @@ public class FloorSpike : MonoBehaviour {
         if (c.gameObject.tag == "Player" && canFire)
         {
             c.gameObject.GetComponent<PlayerControl>().health.takeDamage(damage);
-            StartCoroutine(wait(interval));
+            Timing.RunCoroutine(wait(interval));
         }
     }
     void OnTriggerExit(Collider c)
@@ -35,10 +36,10 @@ public class FloorSpike : MonoBehaviour {
         }
     }
 
-    IEnumerator wait(float seconds)
+    IEnumerator<float> wait(float seconds)
     {
         canFire = false;
-        yield return new WaitForSeconds(seconds);
+        yield return Timing.WaitForSeconds(seconds);
         canFire = true;
     }
 }

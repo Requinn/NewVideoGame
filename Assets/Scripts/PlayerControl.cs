@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using MovementEffects;
 
 public class PlayerControl : MonoBehaviour, Entity {
     public float walkspeed = 10.0f;
@@ -12,12 +12,14 @@ public class PlayerControl : MonoBehaviour, Entity {
     public List<GameObject> weapons;
     public GameObject shield;
 
+    public Animator animator;
+    public int walkHash = Animator.StringToHash("Run");
+
     private float speed;
     private Vector3 moveDir = Vector3.zero; //not moving anywhere
     private CharacterController control;
-    private Camera camera;
+    public Camera camera;
     private GameObject currentWeapon;
-
     public enum State
     {
         Idle, //Doing nothing
@@ -34,6 +36,7 @@ public class PlayerControl : MonoBehaviour, Entity {
         weapons[1].SetActive(false);
         currentWeapon = weapons[0];
         //For now, we start at max hp
+        //animator = GetComponent<Animator>();
         control = GetComponent<CharacterController>();
         camera = GetComponentInChildren<Camera>();
         
@@ -41,16 +44,14 @@ public class PlayerControl : MonoBehaviour, Entity {
 	
 	// Update is called once per frame
 	void Update () {
-        if (health.curHP > 0)
+        if (state != State.Dead)
         {
             moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            //animator.SetFloat("Input X", moveDir.x);
+            //animator.SetFloat("Input Z", moveDir.z);
             Movement(moveDir);
             Attack();
             WeaponSwap();
-        }
-        else
-        {
-            state = State.Dead;
         }
 	}
 
@@ -58,6 +59,16 @@ public class PlayerControl : MonoBehaviour, Entity {
     {
         direction = camera.transform.TransformDirection(direction);
         direction *= speed;
+        if(direction != new Vector3(0,0,0))
+        {
+            //animator.SetBool("Moving", true);
+            //animator.SetBool("Running", true);
+        }
+        else
+        {
+            //animator.SetBool("Moving", false);
+            //animator.SetBool("Running", false);
+        }
         /**if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = sprintspeed;
@@ -87,6 +98,9 @@ public class PlayerControl : MonoBehaviour, Entity {
         control.Move(direction * Time.deltaTime);
     }
 
+    public void LookAt()
+    {
+    }
     public void Attack()
     {
         //Mouse reference Left - 0 : Middle - 2 : Right - 1
@@ -95,7 +109,8 @@ public class PlayerControl : MonoBehaviour, Entity {
             if (Input.GetMouseButton(0))
             {
                 state = State.Attacking;
-                StartCoroutine(currentWeapon.GetComponent<Weapon>().fire());
+                //animator.SetTrigger("Attack1Trigger");
+                Timing.RunCoroutine(currentWeapon.GetComponent<Weapon>().fire());
             }
             else if (Input.GetMouseButton(1))
             {
@@ -108,6 +123,12 @@ public class PlayerControl : MonoBehaviour, Entity {
         }
         
     }
+
+    public void Die()
+    {
+        state = State.Dead;
+    }
+
     public bool getBlock()
     {
         if(state == State.Blocking && health.shieldHP > 0)
@@ -119,6 +140,8 @@ public class PlayerControl : MonoBehaviour, Entity {
             return false;
         }
     }
+
+
     public void WeaponSwap()
     {
         if(Time.timeScale > 0)
