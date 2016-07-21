@@ -9,5 +9,6 @@ public interface Entity
     void Die();
     void LookAt();
     bool getBlock();
+    float getHealth();
     GameObject getShield();
 }

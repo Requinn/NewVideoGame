@@ -15,6 +15,7 @@ public class ChargeWeapon : MonoBehaviour, Weapon
     private Rigidbody body;
     private bool charging = false;
     private Vector3 moveDir;
+    private GameObject attachedentity;
 
     public enum State
     {
@@ -22,10 +23,12 @@ public class ChargeWeapon : MonoBehaviour, Weapon
         charging,
         stopping,
     }
+
     void Start()
     {
         navagent = GetComponentInParent<NavMeshAgent>();
         body = GetComponentInParent<Rigidbody>();
+        attachedentity = this.transform.parent.gameObject;
         col.enabled = false;
     }
 
@@ -50,10 +53,13 @@ public class ChargeWeapon : MonoBehaviour, Weapon
 
             //done chargin, reenable everything
             state = State.stopping;
-            GetComponentInParent<Drone_SummonedAI>().attackstate = false;
-            body.isKinematic = true;
-            col.enabled = false;
-            navagent.Resume();
+            if (attachedentity != null) //incase we die mid charge
+            {
+                GetComponentInParent<Drone_SummonedAI>().attackstate = false;
+                body.isKinematic = true;
+                col.enabled = false;
+                navagent.Resume();
+            }
 
             //Not a navmesh? Use character controller so it doesn't clip int shit with rigidbodies 
             Timing.RunCoroutine(reload());

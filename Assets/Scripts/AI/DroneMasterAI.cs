@@ -53,10 +53,10 @@ public class DroneMasterAI : MonoBehaviour {
             //all the drones are dead
             if (droneGroup.Count == 0)
             {
-                droneGroup.Add(Instantiate(drone, transform.position + new Vector3(2f, 0f, 0f), GetComponentInParent<Transform>().rotation) as GameObject);
-                droneGroup.Add(Instantiate(drone, transform.position + new Vector3(0f, 0, 2f), GetComponentInParent<Transform>().rotation) as GameObject);
-                droneGroup.Add(Instantiate(drone, transform.position + new Vector3(0f, 0, -2f), GetComponentInParent<Transform>().rotation) as GameObject);
-                droneGroup.Add(Instantiate(drone, transform.position + new Vector3(-2f, 0, 0f), GetComponentInParent<Transform>().rotation) as GameObject);
+                droneGroup.Add(Instantiate(drone, transform.position + new Vector3(3f, 0f, 0f), GetComponentInParent<Transform>().rotation) as GameObject);
+                droneGroup.Add(Instantiate(drone, transform.position + new Vector3(0f, 0, 3f), GetComponentInParent<Transform>().rotation) as GameObject);
+                droneGroup.Add(Instantiate(drone, transform.position + new Vector3(0f, 0, -3f), GetComponentInParent<Transform>().rotation) as GameObject);
+                droneGroup.Add(Instantiate(drone, transform.position + new Vector3(-3f, 0, 0f), GetComponentInParent<Transform>().rotation) as GameObject);
                 dronesActive = true;
             }
             //if we have drones ane the player is still seen

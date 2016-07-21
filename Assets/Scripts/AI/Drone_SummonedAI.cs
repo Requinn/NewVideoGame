@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using MovementEffects;
 
 public class Drone_SummonedAI : MonoBehaviour {
     public Vision vision;
@@ -10,8 +11,10 @@ public class Drone_SummonedAI : MonoBehaviour {
     private GameObject player;
     private Vector3 storedDestination;
     private State state;
-    public bool attackstate = false; 
-
+    private float sleeptime;
+    public bool attackstate = false;
+    private bool waiting = true;
+    private bool canAttack = true;
     public enum State
     {
         attacking,
@@ -26,24 +29,44 @@ public class Drone_SummonedAI : MonoBehaviour {
         nav = GetComponent<NavMeshAgent>();
         nav.autoBraking = true;
         state = State.idling;
+        //Timing.RunCoroutine(wait(3f));
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(vision.alertness == 1 || vision.alertness == 0)
+        if (waiting)
         {
-            state = State.moving;
-            nav.SetDestination(vision.personalLastSighting);
+            Timing.RunCoroutine(wait(0f, 5f));
         }
-        if(vision.alertness == 2)
-        {
-            state = State.attacking;
-            if (attackstate == false)
+        else {
+            if (vision.alertness == 1 || vision.alertness == 0)
             {
-                enemyscript.LookAt();
+                state = State.moving;
+                nav.SetDestination(vision.personalLastSighting);
             }
-            enemyscript.Attack();
-            
+            if (vision.alertness == 2)
+            {
+                state = State.attacking;
+                if (attackstate == false)
+                {
+                    enemyscript.LookAt();
+                }
+                if (canAttack)
+                {
+                    canAttack = false;
+                    Timing.RunCoroutine(wait(5f, 8f));
+                    enemyscript.Attack();
+                    canAttack = true;
+                }
+
+            }
         }
 	}
+
+    IEnumerator<float> wait(float start, float end)
+    {
+        sleeptime = Random.Range(start, end);
+        yield return Timing.WaitForSeconds(sleeptime);
+        waiting = false;
+    }
 }

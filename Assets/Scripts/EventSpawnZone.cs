@@ -22,7 +22,7 @@ public class EventSpawnZone : MonoBehaviour {
             for(int i = 0; i < spawnlist.Count; i++)
             {
                 spawnlist[i].SetActive(true);
-                spawnlist[i].GetComponent<QuickSpawner>().Spawn(); //quick and bandaged, make a class for these so we can have different spawns?
+                spawnlist[i].GetComponent<QuickSpawner>().Spawn(); 
             }
             cantrigger = false;
             Destroy(this.gameObject);

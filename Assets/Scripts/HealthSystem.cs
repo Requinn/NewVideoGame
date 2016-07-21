@@ -16,7 +16,7 @@ public class HealthSystem : MonoBehaviour {
         {
             shieldMAX = shield.GetComponent<Shield>().getshieldMAX();
         }
-        else
+        else if (shield == null || shieldMAX == 0)
         {
             UIhealth.shieldBar.SetActive(false);
             shieldMAX = 0;

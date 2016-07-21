@@ -18,6 +18,11 @@ public class Drone_Summoned : MonoBehaviour, Entity {
         throw new NotImplementedException();
     }
 
+    public float getHealth()
+    {
+        throw new NotImplementedException();
+    }
+
     public GameObject getShield()
     {
         throw new NotImplementedException();

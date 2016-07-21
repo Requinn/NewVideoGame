@@ -168,5 +168,10 @@ public class PlayerControl : MonoBehaviour, Entity {
     {
         return shield;
     }
-    
+
+    public float getHealth()
+    {
+        return health.curHP;
+    }
+
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using MovementEffects;
+using System;
 
 public class EnemyControl : MonoBehaviour, Entity {
     public Vision vision;
@@ -127,5 +128,10 @@ public class EnemyControl : MonoBehaviour, Entity {
         {
             return null;
         }
+    }
+
+    public float getHealth()
+    {
+        return curHealth;
     }
 }
