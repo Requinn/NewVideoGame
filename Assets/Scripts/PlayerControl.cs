@@ -20,6 +20,8 @@ public class PlayerControl : MonoBehaviour, Entity {
     private CharacterController control;
     public Camera camera;
     private GameObject currentWeapon;
+
+    public float vertMovement = -1f;
     public enum State
     {
         Idle, //Doing nothing
@@ -59,7 +61,8 @@ public class PlayerControl : MonoBehaviour, Entity {
     {
         direction = camera.transform.TransformDirection(direction);
         direction *= speed;
-        if(direction != new Vector3(0,0,0))
+        direction.y = 0f;  //this disables freefly
+        if (direction != new Vector3(0,0,0))
         {
             //animator.SetBool("Moving", true);
             //animator.SetBool("Running", true);
@@ -84,17 +87,19 @@ public class PlayerControl : MonoBehaviour, Entity {
         else {
             speed = walkspeed;
         }
-        /**if (Input.GetButton("Jump") && control.isGrounded) 
+        if (Input.GetButton("Jump") && control.isGrounded) 
         {
-            moveDir.y = jump;
-            control.Move(moveDir * Time.deltaTime);
+            vertMovement = jump;
+            //direction.y = jump;
+            //control.Move(direction * Time.deltaTime);
         }
         else
         {
             
-        }**/
-        direction.y = 0f;  //this disables freefly
-        direction.y -= gravity * Time.deltaTime;
+        }  
+        vertMovement -= gravity * Time.deltaTime; 
+        //moving up with a force of X constantly acted on by a force of Y over time, Y force is greater so it will eventually force X to 0
+        direction.y = vertMovement;
         control.Move(direction * Time.deltaTime);
     }
 
@@ -146,7 +151,7 @@ public class PlayerControl : MonoBehaviour, Entity {
     {
         if(Time.timeScale > 0)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 if (currentWeapon == weapons[0])
                 {
