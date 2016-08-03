@@ -6,6 +6,7 @@ public class Turret : MonoBehaviour {
     public string target;
     public Rigidbody projectile;
     public float fireRate;
+    public int damage;
 
     private bool canFire = true;
     private GameObject player;
@@ -36,6 +37,7 @@ public class Turret : MonoBehaviour {
     IEnumerator fire()
     {
         canFire = false;
+        projectile.GetComponent<Projectile>().setDamage(damage);
         projectile.GetComponent<Projectile>().setTarget("Player");
         Rigidbody instantProjectile = Instantiate(projectile, transform.position, GetComponentInParent<Transform>().rotation) as Rigidbody;
         instantProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, projectile.GetComponent<Projectile>().getVelocity()));
