@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour, Entity {
     public float sprintspeed = 13.33f;
     public float jump = 5.0f;
     public float gravity = 25.0f;
+    public float interactdist = 5.0f;
 
     public HealthSystem health;
     public List<GameObject> weapons;
@@ -20,6 +21,8 @@ public class PlayerControl : MonoBehaviour, Entity {
     private CharacterController control;
     public Camera camera;
     private GameObject currentWeapon;
+    private RaycastHit interactloc;
+    private Ray playersight;
 
     public float vertMovement = -1f;
     public enum State
@@ -35,8 +38,12 @@ public class PlayerControl : MonoBehaviour, Entity {
 
     // Use this for initialization
     void Start () {
-        weapons[1].SetActive(false);
-        currentWeapon = weapons[0];
+        /**
+        if (weapons[1] != null)
+        {
+            weapons[1].SetActive(false);
+        }**/
+        //currentWeapon = weapons[0];
         //For now, we start at max hp
         //animator = GetComponent<Animator>();
         control = GetComponent<CharacterController>();
@@ -52,8 +59,21 @@ public class PlayerControl : MonoBehaviour, Entity {
             //animator.SetFloat("Input X", moveDir.x);
             //animator.SetFloat("Input Z", moveDir.z);
             Movement(moveDir);
-            Attack();
-            WeaponSwap();
+            LookAt();
+            if (weapons.Count >= 1)
+            {
+                if (weapons[0] != null)
+                {
+                    Attack();
+                    if (weapons.Count >= 2)
+                    {
+                        if (weapons[1] != null)
+                        {
+                            WeaponSwap();
+                        }
+                    }
+                }
+            }
         }
 	}
 
@@ -93,11 +113,11 @@ public class PlayerControl : MonoBehaviour, Entity {
             //direction.y = jump;
             //control.Move(direction * Time.deltaTime);
         }
-        else
+        //this prevents a gravity build up
+        if (vertMovement > -gravity)
         {
-            
-        }  
-        vertMovement -= gravity * Time.deltaTime; 
+            vertMovement -= gravity * Time.deltaTime;
+        }
         //moving up with a force of X constantly acted on by a force of Y over time, Y force is greater so it will eventually force X to 0
         direction.y = vertMovement;
         control.Move(direction * Time.deltaTime);
@@ -105,7 +125,18 @@ public class PlayerControl : MonoBehaviour, Entity {
 
     public void LookAt()
     {
+        playersight = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(playersight, out interactloc, interactdist))
+        {
+            //Debug.Log(interactloc.distance);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                interactloc.collider.gameObject.SendMessage("activate", 1.0f, SendMessageOptions.DontRequireReceiver);
+
+            }
+        }
     }
+
     public void Attack()
     {
         //Mouse reference Left - 0 : Middle - 2 : Right - 1
@@ -146,6 +177,19 @@ public class PlayerControl : MonoBehaviour, Entity {
         }
     }
 
+    private void pickup(int signal)
+    {
+        //This section will definitely need some kind of expanding later
+        //I can't predict the future, and this does the job for now
+        if(weapons.Count == 1)
+        {
+            currentWeapon = weapons[0];
+        }
+        if(weapons.Count == 2)
+        {
+            weapons[1].SetActive(false);
+        }
+    }
 
     public void WeaponSwap()
     {

@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Button.cs" />
     <Compile Include="Assets\Drone_Summoned.cs" />
     <Compile Include="Assets\InventoryStation.cs" />
     <Compile Include="Assets\QuickSpawner.cs" />
@@ -104,6 +105,8 @@
     <Compile Include="Assets\Scripts\UIHealth.cs" />
     <Compile Include="Assets\Scripts\UIPause.cs" />
     <Compile Include="Assets\Scripts\Vision.cs" />
+    <Compile Include="Assets\Scripts\WeaponPickup.cs" />
+    <Compile Include="Assets\TestHat.cs" />
     <Compile Include="Assets\zzRuler\zzHorizontalRuler.cs" />
     <Compile Include="Assets\zzRuler\zzVerticalRuler.cs" />
   </ItemGroup>
