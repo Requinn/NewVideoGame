@@ -128,6 +128,7 @@ public class PlayerControl : MonoBehaviour, Entity {
         playersight = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(playersight, out interactloc, interactdist))
         {
+            //interactloc.collider.gameObject.SendMessage("activate", 1.0f, SendMessageOptions.DontRequireReceiver);
             //Debug.Log(interactloc.distance);
             if (Input.GetKeyDown(KeyCode.E))
             {

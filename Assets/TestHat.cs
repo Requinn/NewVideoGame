@@ -20,9 +20,12 @@ public class TestHat : MonoBehaviour {
 
     private void activate(float signal)
     {
-        //this.transform.SetParent(player.transform.GetChild(2).transform, false);
-        //transform.position = player.transform.GetChild(2).transform.position;
-        this.transform.SetParent(attachlocation, false);
-        transform.position = attachlocation.position;
+        if (signal == 2.0f)
+        {
+            //this.transform.SetParent(player.transform.GetChild(2).transform, false);
+            //transform.position = player.transform.GetChild(2).transform.position;
+            this.transform.SetParent(attachlocation, false);
+            transform.position = attachlocation.position;
+        }
     }
 }

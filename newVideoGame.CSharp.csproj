@@ -69,8 +69,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Button.cs" />
     <Compile Include="Assets\Drone_Summoned.cs" />
+    <Compile Include="Assets\GlowOutlineShader.cs" />
     <Compile Include="Assets\InventoryStation.cs" />
     <Compile Include="Assets\QuickSpawner.cs" />
     <Compile Include="Assets\Scripts\AI\DroneMasterAI.cs" />
@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\AnimatorAssetExampleCode\WarriorAnimationDemoFREE.cs" />
     <Compile Include="Assets\Scripts\BasicBullet.cs" />
     <Compile Include="Assets\Scripts\BasicShield.cs" />
+    <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\ChargeWeapon.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\EventSpawnZone.cs" />
@@ -107,11 +108,15 @@
     <Compile Include="Assets\Scripts\Vision.cs" />
     <Compile Include="Assets\Scripts\WeaponPickup.cs" />
     <Compile Include="Assets\TestHat.cs" />
+    <Compile Include="Assets\TestShader.cs" />
     <Compile Include="Assets\zzRuler\zzHorizontalRuler.cs" />
     <Compile Include="Assets\zzRuler\zzVerticalRuler.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\OffsetShaderTest.shader" />
+    <None Include="Assets\OutlineGlow.shader" />
     <None Include="Assets\Plugins\Trinary Software\NewUnlitShader.shader" />
+    <None Include="Assets\Testshader.shader" />
     <None Include="Assets\zzRuler\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
