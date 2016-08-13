@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\UIPause.cs" />
     <Compile Include="Assets\Scripts\Vision.cs" />
     <Compile Include="Assets\Scripts\WeaponPickup.cs" />
+    <Compile Include="Assets\SwingingDoor.cs" />
     <Compile Include="Assets\TestHat.cs" />
     <Compile Include="Assets\TestShader.cs" />
     <Compile Include="Assets\zzRuler\zzHorizontalRuler.cs" />
