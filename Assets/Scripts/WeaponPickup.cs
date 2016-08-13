@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WeaponPickup : MonoBehaviour {
     public Transform attachlocation;
-
+    public GameObject glowmesh;
     private GameObject player;
 
     // Use this for initialization
@@ -24,5 +24,6 @@ public class WeaponPickup : MonoBehaviour {
         //transform.LookAt(Camera.main.transform);
         player.GetComponent<PlayerControl>().weapons.Add(this.gameObject);
         player.SendMessage("pickup", 1);
+        Destroy(glowmesh);
     }
 }

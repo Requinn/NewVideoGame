@@ -7,6 +7,7 @@ public class GlowOutlineShader : MonoBehaviour {
     public Material outline;
     public Material nooutline;
     public Texture texture;
+    public Color color;
 
     public float sig;
     // Use this for initialization
@@ -36,13 +37,14 @@ public class GlowOutlineShader : MonoBehaviour {
             MeshOutline.SetActive(false);
             //Graphics.Blit(texture, nooutline);
         }**/
-        Destroy(MeshOutline);
+        //Destroy(MeshOutline);
     }
 
     void OnMouseEnter()
     {
         if (MeshOutline != null && Time.timeScale == 1.0f)
         {
+            outline.color = color;
             MeshOutline.SetActive(true);
         }
     }
