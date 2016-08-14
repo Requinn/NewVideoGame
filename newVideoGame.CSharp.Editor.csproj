@@ -114,6 +114,7 @@
     <None Include="Assets\OffsetShaderTest.shader" />
     <None Include="Assets\OutlineGlow.shader" />
     <None Include="Assets\Plugins\Trinary Software\NewUnlitShader.shader" />
+    <None Include="Assets\Silhoutte_Outline.shader" />
     <None Include="Assets\Testshader.shader" />
     <None Include="Assets\zzRuler\readme.txt" />
   </ItemGroup>
