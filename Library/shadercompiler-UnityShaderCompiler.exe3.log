@@ -1,28 +1,44 @@
 Base path: Z:/Unity/Editor/Data
 Cmd: getPlatforms
-Cmd: disassembleShader
-  api=15 insize=1953 outsize=3292 ok=1
 Cmd: compileSnippet
-  api=1 type=0 insize=970 outsize=1404 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON VERTEXLIGHT_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
+  api=8 type=1 insize=971 outsize=329 kw= pd=UNITY_NO_LINEAR_COLORSPACE UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF3 ok=1
 Cmd: disassembleShader
-  api=10 insize=1404 outsize=2410 ok=1
+  api=14 insize=329 outsize=892 ok=1
 Cmd: compileSnippet
-  api=1 type=1 insize=970 outsize=3860 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
+  api=1 type=0 insize=3675 outsize=292 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
 Cmd: disassembleShader
-  api=12 insize=3860 outsize=7014 ok=1
+  api=9 insize=292 outsize=514 ok=1
 Cmd: compileSnippet
-  api=1 type=1 insize=970 outsize=3968 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_ON pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
+  api=4 type=0 insize=3675 outsize=473 kw=POINT pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
 Cmd: disassembleShader
-  api=12 insize=3968 outsize=7239 ok=1
+  api=15 insize=473 outsize=1115 ok=1
 Cmd: compileSnippet
-  api=1 type=0 insize=927 outsize=1160 kw=DIRECTIONAL SHADOWS_OFF pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
+  api=8 type=0 insize=3675 outsize=697 kw=SPOT pd=UNITY_NO_LINEAR_COLORSPACE UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF3 ok=1
 Cmd: disassembleShader
-  api=10 insize=1160 outsize=1946 ok=1
+  api=13 insize=697 outsize=1960 ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=927 outsize=2353 kw=POINT_COOKIE SHADOWS_OFF pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
+  api=4 type=1 insize=3675 outsize=249 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
 Cmd: disassembleShader
-  api=15 insize=2353 outsize=3796 ok=1
+  api=17 insize=249 outsize=761 ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=927 outsize=2557 kw=SPOT SHADOWS_DEPTH SHADOWS_NATIVE pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
+  api=1 type=1 insize=3675 outsize=128 kw=SPOT pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
 Cmd: disassembleShader
-  api=15 insize=2557 outsize=4136 ok=1
+  api=11 insize=128 outsize=152 ok=1
+Cmd: compileSnippet
+  api=8 type=1 insize=3675 outsize=329 kw=SPOT pd=UNITY_NO_LINEAR_COLORSPACE UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF3 ok=1
+Cmd: disassembleShader
+  api=14 insize=329 outsize=892 ok=1
+Cmd: compileSnippet
+  error: 2 plat 8 at (0): Program 'frag', error X3501: 'frag': entrypoint not found\nCompiling Fragment program
+Platform defines: UNITY_NO_LINEAR_COLORSPACE UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF3
+  api=8 type=1 insize=964 outsize=0 kw= pd=UNITY_NO_LINEAR_COLORSPACE UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF3 ok=0
+Cmd: disassembleShader
+  api=9 insize=292 outsize=514 ok=1
+Cmd: disassembleShader
+  api=13 insize=697 outsize=1960 ok=1
+Cmd: disassembleShader
+  api=13 insize=697 outsize=1960 ok=1
+Cmd: disassembleShader
+  api=11 insize=128 outsize=152 ok=1
+Cmd: disassembleShader
+  api=17 insize=249 outsize=761 ok=1
