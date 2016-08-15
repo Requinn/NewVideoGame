@@ -28,6 +28,7 @@ public class Drone_SummonedAI : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
         nav.autoBraking = true;
+        vision.personalLastSighting = transform.position;
         state = State.idling;
         //Timing.RunCoroutine(wait(3f));
     }

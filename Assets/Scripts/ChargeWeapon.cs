@@ -58,7 +58,10 @@ public class ChargeWeapon : MonoBehaviour, Weapon
                 GetComponentInParent<Drone_SummonedAI>().attackstate = false;
                 body.isKinematic = true;
                 col.enabled = false;
+                navagent.transform.position = this.transform.position;
+                navagent.ResetPath();
                 navagent.Resume();
+                
             }
 
             //Not a navmesh? Use character controller so it doesn't clip int shit with rigidbodies 
