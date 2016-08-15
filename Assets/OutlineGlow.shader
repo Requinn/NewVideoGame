@@ -58,6 +58,8 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				float ndotv = 1 - dot(i.normal, i.viewDir) * _Intensity;
+				//Making the object a solid glow, rather than a fadeing glow
+				//float ndotv = dot(i.normal, i.viewDir) * _Intensity;
 				return ndotv * _Color;
 			}
 			ENDCG
