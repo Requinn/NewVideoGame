@@ -30,4 +30,15 @@ public class MovingPlatform : MonoBehaviour {
     {
         return transform.position;
     }
+
+    public void OnTriggerEnter(Collider col)
+    {
+        //make player a child of platform so we don't slide off
+        col.transform.SetParent(this.transform,true);
+    }
+
+    public void OnTriggerExit(Collider col)
+    {
+        col.transform.SetParent(null, true);
+    }
 }
