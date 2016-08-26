@@ -68,7 +68,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Drone_Summoned.cs" />
     <Compile Include="Assets\GlowOutlineShader.cs" />
     <Compile Include="Assets\InventoryStation.cs" />
     <Compile Include="Assets\QuickSpawner.cs" />
@@ -83,6 +82,7 @@
     <Compile Include="Assets\Scripts\BasicShield.cs" />
     <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\ChargeWeapon.cs" />
+    <Compile Include="Assets\Scripts\Drone_Summoned.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\EventSpawnZone.cs" />
     <Compile Include="Assets\Scripts\FloorSpike.cs" />
@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\MovementControl.cs" />
+    <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerGun.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
