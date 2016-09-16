@@ -18,6 +18,7 @@
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.5f1</UnityVersion>
     <RootNamespace></RootNamespace>
+    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -57,17 +58,18 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FacePlayer.cs" />
     <Compile Include="Assets\GlowOutlineShader.cs" />
     <Compile Include="Assets\InventoryStation.cs" />
     <Compile Include="Assets\QuickSpawner.cs" />
@@ -80,7 +82,6 @@
     <Compile Include="Assets\Scripts\AnimatorAssetExampleCode\WarriorAnimationDemoFREE.cs" />
     <Compile Include="Assets\Scripts\BasicBullet.cs" />
     <Compile Include="Assets\Scripts\BasicShield.cs" />
-    <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\ChargeWeapon.cs" />
     <Compile Include="Assets\Scripts\Drone_Summoned.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\MovementControl.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\PlatformButton.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerGun.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Assets\SwingingDoor.cs" />
     <Compile Include="Assets\TestHat.cs" />
     <Compile Include="Assets\TestShader.cs" />
+    <Compile Include="Assets\UnlockButton.cs" />
     <Compile Include="Assets\zzRuler\zzHorizontalRuler.cs" />
     <Compile Include="Assets\zzRuler\zzVerticalRuler.cs" />
   </ItemGroup>
