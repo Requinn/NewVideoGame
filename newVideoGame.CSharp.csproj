@@ -81,11 +81,11 @@
     <Compile Include="Assets\Scripts\AnimatorAssetExampleCode\WarriorAnimationDemoFREE.cs" />
     <Compile Include="Assets\Scripts\BasicBullet.cs" />
     <Compile Include="Assets\Scripts\BasicShield.cs" />
-    <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\ChargeWeapon.cs" />
     <Compile Include="Assets\Scripts\Drone_Summoned.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\EventSpawnZone.cs" />
+    <Compile Include="Assets\Scripts\FacePlayer.cs" />
     <Compile Include="Assets\Scripts\FloorSpike.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\HealPad.cs" />
@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\MovementControl.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\PlatformButton.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerGun.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
@@ -106,6 +107,8 @@
     <Compile Include="Assets\Scripts\Types\Weapons.cs" />
     <Compile Include="Assets\Scripts\UIHealth.cs" />
     <Compile Include="Assets\Scripts\UIPause.cs" />
+    <Compile Include="Assets\Scripts\UnlockButton.cs" />
+    <Compile Include="Assets\Scripts\UnlockButton_Object.cs" />
     <Compile Include="Assets\Scripts\Vision.cs" />
     <Compile Include="Assets\Scripts\WeaponPickup.cs" />
     <Compile Include="Assets\SwingingDoor.cs" />
