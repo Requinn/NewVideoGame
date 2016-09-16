@@ -16,7 +16,7 @@ public class MovingPlatform : MonoBehaviour {
         if (transform.position != destination)
         {
             difference = destination - transform.position;
-            transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * velocity);
+            transform.position = Vector3.MoveTowards(transform.position, destination, 0.025f);
         }
 	}
 

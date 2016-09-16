@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using MovementEffects;
-using UnityEngine.UI;
 
 public class PlayerGun : MonoBehaviour, Weapon
 {
     public Rigidbody projectile;
     public float fireRate;
-    public int fullMag = 15;
-    public int magazine = 15;
+    //public int fullMag = 15;
+    //public int magazine = 15;
     public float reloadTime = 2;
 
     public int energycost = 5;
@@ -17,17 +16,15 @@ public class PlayerGun : MonoBehaviour, Weapon
     public float damage;
     private bool canFire = true;
     public HealthSystem shieldenrgy;
-    public Text maginfo;
 
-    
     public IEnumerator<float> fire()
     {
         if (canFire)
         {
-            if (magazine > 0) //shieldenrgy.shieldHP > energycost
+            if (shieldenrgy.shieldHP > energycost)
             {
-                magazine--;
-                //shieldenrgy.takeShieldDmg(energycost);
+                //magazine--;
+                shieldenrgy.takeShieldDmg(energycost);
                 canFire = false;
                 projectile.GetComponent<Projectile>().setDamage(damage);
                 projectile.GetComponent<Projectile>().setTarget(target);
@@ -39,17 +36,10 @@ public class PlayerGun : MonoBehaviour, Weapon
             }
             else
             {
-                //maybe some kind of noise like bweeeorr to tel you're out of energy/ammo
+                //maybe some kind of noise like bweeeorr to tel you're out of energy
                 Timing.RunCoroutine(reload());
-                magazine = fullMag;
             }
-            UpdateUIInfo();
         }
-    }
-    
-    public void UpdateUIInfo()
-    {
-        maginfo.text = magazine + "/" + fullMag;
     }
 
     public IEnumerator<float> reload()

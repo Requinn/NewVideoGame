@@ -23,7 +23,6 @@ public class WeaponPickup : MonoBehaviour {
         //transform.rotation = new Quaternion(0,0,0,0);
         //transform.LookAt(Camera.main.transform);
         player.GetComponent<PlayerControl>().weapons.Add(this.gameObject);
-        
         player.SendMessage("pickup", 1);
         //Make a public variable to hold the object intended for use?
         //Test gun has too many meshes pieces, sword is using another otbject. see into this later.
